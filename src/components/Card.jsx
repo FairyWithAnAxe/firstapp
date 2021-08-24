@@ -12,7 +12,7 @@ export default class Card extends React.Component {
                         <h4 className="card-title">Безлимитный {title}</h4>
                         <p className="card-price">руб <span>{price}</span> /мес</p>
                     </div>
-                    <p className="card-description">до {description} Мбит/сек</p>
+                    <div className="card-description">до {description} Мбит/сек</div>
                 </div>
                 <div className="card-footer">
                     <p className="card-text">Объем включенного трафика не ограничен</p>

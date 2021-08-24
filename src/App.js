@@ -5,20 +5,23 @@ import './components/Card.css';
   const cardsJSON = `[{
     "title": "300",
     "price":"300",
-    "description": "10"
+    "description": "10",
+    "isSelected": false
   }, {
     "title": "450",
     "price":"450",
-    "description": "50"
+    "description": "50",
+    "isSelected": false
   }, {
     "title": "550",
     "price":"550",
     "description": "100",
-    "isSelected": "true"
+    "isSelected": true
   }, {
     "title": "1000",
     "price":"1000",
-    "description": "200"
+    "description": "200",
+    "isSelected": false
   }  ]`;
 
   const cards = JSON.parse(cardsJSON);

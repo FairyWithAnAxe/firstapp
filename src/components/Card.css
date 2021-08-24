@@ -5,7 +5,7 @@
 
 .cards {
     display: flex;
-
+    flex-wrap: wrap;
     /* justify-content: space-around; */
 }
 
@@ -66,6 +66,11 @@
 
 .card-description {
     padding: 15px 0px;
+    /* text-align: center;
+    vertical-align: middle; */
+    display: flex;
+    align-self: center;
+    justify-content: center;
 }
 
 .card-footer {
