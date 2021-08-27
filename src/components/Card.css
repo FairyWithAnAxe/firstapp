@@ -9,7 +9,7 @@
     /* justify-content: space-around; */
 }
 
-.cards .card:nth-child(1) .card-color {
+/* .cards .card:nth-child(1) .card-color {
     background-color: blue;
 }
 
@@ -23,7 +23,24 @@
 
 .cards .card:nth-child(4) .card-color {
     background-color: grey;
+} */
+
+.blue {
+    background-color: #229cab;
 }
+
+.green {
+    background-color: #1f8972;
+}
+
+.red {
+    background-color: #c4554e;
+}
+
+.grey {
+    background-color: #282f37;
+}
+
 
 .card {
     /* padding: 20px; */
