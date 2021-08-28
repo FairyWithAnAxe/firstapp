@@ -1,13 +1,27 @@
 import React from 'react'
 
 export default class Card extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            pressed: false
+        };
+    };
+
     render() {
         const { title, price, description, color, isSelected } = this.props;
+        //const { ...props } = this.props;
+
+        const handleChange = () => {
+            this.setState({ pressed: !this.state.pressed });
+        }
 
 
         return (
 
-            <div className={"card " + (isSelected ? "selected" : "")}>
+            //<div className={"card " + (isSelected ? "selected" : "")}>
+            <div onClick={handleChange} className={this.state.pressed ? "card selected" : "card"}>
                 <div className="card-body">
                     {/* <div className="card-color"> */}
                     <div className={color}>
