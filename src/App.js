@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import './App.css';
 import Card from './components/Card';
 //import './components/Card.css';
 import Comments from './components/Comments/Comments';
 import TestComment from './components/Comments/TestComment';
+import Comments_w29 from './components/Comments_w29/Comments_w29';
 import Timer from './components/Timer';
+import Form from './components/ToDo/Form';
+import ToDoList from './components/ToDo/ToDoList';
 
   const cardsJSON = `[{
     "title": "300",
@@ -34,20 +38,42 @@ import Timer from './components/Timer';
   const cards = JSON.parse(cardsJSON);
 
 function App() {
-  return (
-    <div className="cards">
-      
-      {/* {cards.map((card)=>
-      <Card title={card.title} price={card.price} description={card.description} color={card.color} isSelected={card.isSelected}/>
-      )} */}
+  const [inputText, setInputText] = useState('');
+  const [todos, setTodos] = useState([]);
 
-      {/* <div><Timer/></div> */}
-      <div>
-        {/* <TestComment/> */}
-        <Comments currentUserId="1"/>
-      </div>
+  return (
+
+        <div>
+          <header>
+            <h1>To Do List</h1>
+          </header>
+          
+          <Form todos={todos} setTodos={setTodos} inputText={inputText} setInputText={setInputText}/>
+          <ToDoList/>
+        </div>
+
+
+
+
+
+
+
+
+
+    // <div className="cards">
       
-    </div>
+    //   {/* {cards.map((card)=>
+    //   <Card title={card.title} price={card.price} description={card.description} color={card.color} isSelected={card.isSelected}/>
+    //   )} */}
+
+    //   {/* <div><Timer/></div> */}
+    //   <div>
+    //     {/* <TestComment/> */}
+    //     {/* <Comments currentUserId="1"/> */}
+    //     {/* <Comments_w29/> */}
+    //   </div>
+      
+    // </div>
   );
 }
 

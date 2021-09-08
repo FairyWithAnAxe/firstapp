@@ -6,7 +6,7 @@ import Comment from './Comment'
 
 function Comments({ currentUserId }) {
     const [backendComments, setBackendComments] = useState([])
-    console.log("backendComments", backendComments);
+    //console.log("backendComments", backendComments);
 
     const rootComments = backendComments.filter((backendComment) => backendComment.parentId === null);
 
