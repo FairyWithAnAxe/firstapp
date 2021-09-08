@@ -1,12 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 .cards {
     display: flex;
     flex-wrap: wrap;
     /* justify-content: space-around; */
+    text-align: center;
+    margin: 0 auto;
+    width: 80vw;
 }
 
 /* .cards .card:nth-child(1) .card-color {
