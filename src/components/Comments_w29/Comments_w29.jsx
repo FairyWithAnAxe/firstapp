@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import CommentForm_w29 from './CommentForm_w29'
+import Comment_w29 from './Comment_w29'
+import './Comments_w29.css'
 
 function Comments_w29() {
     const [comments, setComments] = useState([])
@@ -8,22 +10,44 @@ function Comments_w29() {
         setComments([text, ...comments])
     }
 
+    const saveLocalComments = useCallback(
+        () => {
+            localStorage.setItem('comments', JSON.stringify(comments))
+        },
+        [comments]
+    )
+
+    const getLocalComments = () => {
+        if (localStorage.getItem('comments') === null) {
+            localStorage.setItem('comments', JSON.stringify([]))
+        } else {
+            let commentsLocal = JSON.parse(localStorage.getItem('comments'))
+            setComments(commentsLocal)
+        }
+    }
+
+    useEffect(() => {
+        getLocalComments()
+    }, [])
+
+    useEffect(() => {
+        saveLocalComments()
+    }, [comments, saveLocalComments])
+
+
+
     return (
         <div className="comments">
             <h3 className="comments-title">Comments</h3>
             <div className="comment-form-title">Write comment</div>
-
             <CommentForm_w29 handleSubmit={addComment} />
-            {/* <textarea className="comment-form-textarea"></textarea>
-            <button className="comment-form-button">Write</button> */}
-
             <div className="comments-container">
-                All Comments
-                {/* {rootComments.map((rootComment) => (
-                    // <div key={rootComment.id}>{rootComment.body}</div>
-                    <Comment key={rootComment.id} comment={rootComment} replies={getReplies(rootComment.id)} />
-                ))} */}
-
+                <h2>All Comments</h2>
+                <div>
+                    {comments.map((comment, index) => (
+                        <Comment_w29 index={index} key={comment.id} comment={comment} />
+                    ))}
+                </div>
             </div>
         </div>
     )

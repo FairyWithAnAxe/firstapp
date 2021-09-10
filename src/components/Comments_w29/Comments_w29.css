@@ -95,3 +95,8 @@
 .replies {
     margin-top: 20px;
 }
+
+.comment__selected {
+    background-color: rgba(59, 130, 246, .3);
+    /* color: #fff; */
+}

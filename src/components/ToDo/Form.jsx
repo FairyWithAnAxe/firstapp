@@ -1,5 +1,5 @@
 import React from 'react'
-import './ToDo.css'
+//import './ToDo.css'
 
 const Form = ({ inputText, setInputText, todos, setTodos }) => {
 

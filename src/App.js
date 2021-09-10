@@ -7,6 +7,7 @@ import TestComment from './components/Comments/TestComment';
 import Comments_w29 from './components/Comments_w29/Comments_w29';
 import Timer from './components/Timer';
 import Form from './components/ToDo/Form';
+import TodoComponent from './components/ToDo/TodoComponent';
 import ToDoList from './components/ToDo/ToDoList';
 
   const cardsJSON = `[{
@@ -38,39 +39,22 @@ import ToDoList from './components/ToDo/ToDoList';
   const cards = JSON.parse(cardsJSON);
 
 function App() {
-  const [inputText, setInputText] = useState('');
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    getLocalTodos()
-  }, [])
-  
-  useEffect(() => {
-    saveLocalTodos()
-  }, [todos])
-
-  const saveLocalTodos = () => {
-    localStorage.setItem('todos', JSON.stringify(todos))
-  }
-
-  const getLocalTodos = () => {
-    if (localStorage.getItem('todos') === null){
-      localStorage.setItem('todos', JSON.stringify([]))
-  } else {
-    let todoLocal = JSON.parse(localStorage.getItem('todos'))
-    setTodos(todoLocal)
-  }
-  }
 
   return (
 
+        
+        
+        // <div>
+        //   <TodoComponent/>
+        // </div>
+
+        // <div>
+        //   <Comments currentUserId="1"/>
+        // </div>
+
+
         <div>
-          <header>
-            <h1>To Do List</h1>
-          </header>
-          
-          <Form todos={todos} setTodos={setTodos} inputText={inputText} setInputText={setInputText}/>
-          <ToDoList todos={todos} setTodos={setTodos}/>
+          <Comments_w29/>
         </div>
 
 
