@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Card from './components/Card';
 //import './components/Card.css';
@@ -41,6 +41,27 @@ function App() {
   const [inputText, setInputText] = useState('');
   const [todos, setTodos] = useState([]);
 
+  useEffect(() => {
+    getLocalTodos()
+  }, [])
+  
+  useEffect(() => {
+    saveLocalTodos()
+  }, [todos])
+
+  const saveLocalTodos = () => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }
+
+  const getLocalTodos = () => {
+    if (localStorage.getItem('todos') === null){
+      localStorage.setItem('todos', JSON.stringify([]))
+  } else {
+    let todoLocal = JSON.parse(localStorage.getItem('todos'))
+    setTodos(todoLocal)
+  }
+  }
+
   return (
 
         <div>
@@ -49,7 +70,7 @@ function App() {
           </header>
           
           <Form todos={todos} setTodos={setTodos} inputText={inputText} setInputText={setInputText}/>
-          <ToDoList/>
+          <ToDoList todos={todos} setTodos={setTodos}/>
         </div>
 
 
